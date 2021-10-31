@@ -1,3 +1,18 @@
+// Prealod sounds
+const k_1 = new Audio('resources/sounds/c-key.mp3');
+const k_2 = new Audio('resources/sounds/c-sharp-key.mp3');
+const k_3 = new Audio('resources/sounds/d-key.mp3');
+const k_4 = new Audio('resources/sounds/d-sharp-key.mp3');
+const k_5 = new Audio('resources/sounds/e-key.mp3');
+const k_6 = new Audio('resources/sounds/f-key.mp3');
+const k_7 = new Audio('resources/sounds/f-sharp-key.mp3');
+const k_8 = new Audio('resources/sounds/g-key.mp3');
+const k_9 = new Audio('resources/sounds/g-sharp-key.mp3');
+const k_10 = new Audio('resources/sounds/a-key.mp3');
+const k_11 = new Audio('resources/sounds/a-sharp-key.mp3');
+const k_12 = new Audio('resources/sounds/b-key.mp3');
+const k_13 = new Audio('resources/sounds/high-c-key.mp3');
+
 // The keys and notes variables store the piano keys
 const keys = ['c-key', 'd-key', 'e-key', 'f-key', 'g-key', 'a-key', 'b-key', 'high-c-key', 'c-sharp-key', 'd-sharp-key', 'f-sharp-key', 'g-sharp-key', 'a-sharp-key'];
 const notes = [];
@@ -7,14 +22,18 @@ keys.forEach(function(key) {
 
 // Write named functions that change the color of the keys below
 const keyPlay = event => {
-    event.currentTarget.style.backgroundColor = '#ffc63f';
+    event.currentTarget.classList.add("active");
     //Play key note
+    let sound = eval(event.currentTarget.dataset.key)
+    sound.cloneNode(true).play();
+    /*
     let note = new Audio(`resources/sounds/${event.currentTarget.id}.mp3`);
     note.play();
+    */
 }
 
 const keyReturn = event => {
-    event.currentTarget.style.backgroundColor = '';
+    event.currentTarget.classList.remove("active");
 }
 
 // Write a named function with event handler properties
