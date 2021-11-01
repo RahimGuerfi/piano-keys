@@ -21,7 +21,7 @@ const keyReturn = event => {
 const notesListener = note => {
     note.onmousedown = keyPlay
     note.onmouseup = keyReturn
-    note.onmouseout = keyReturn
+    note.onmouseleave = keyReturn
 }
 
 // Write a loop that runs the array elements through the function
